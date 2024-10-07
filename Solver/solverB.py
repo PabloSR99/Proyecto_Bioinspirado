@@ -3,7 +3,7 @@ import numpy as np
 import os
 from Diversity.imports import diversidadHussain,porcentajesXLPXPT
 from Metaheuristics.imports import iterarGWO,iterarPSA,iterarSCA,iterarWOA
-from Metaheuristics.imports import iterarPSO,iterarFOX,iterarEOO,iterarRSA,iterarGOA,iterarHBA,iterarTDO,iterarSHO, ejecutarEHO
+from Metaheuristics.imports import iterarPSO,iterarFOX,iterarEOO,iterarRSA,iterarGOA,iterarHBA,iterarTDO,iterarSHO, iterarEHO
 from Problem.Benchmark.Problem import fitness as f
 from util import util
 from BD.sqlite import BD
@@ -135,7 +135,7 @@ def solverB(id, mh, maxIter, pop, function, lb, ub, dim):
         if mh == 'SHO':
             population = iterarSHO(maxIter, iter, dim, population.tolist(), best.tolist(),fo, 'MIN')
         if mh == 'EHO':
-            population = ejecutarEHO(population, population.tolist(), instance.getColumns(),population.len(), 0.3)
+            population = iterarEHO(maxIter, iter, dim, population, best, lb, ub, fitness)
 
         # calculo de factibilidad de cada individuo y calculo del fitness inicial
         for i in range(population.__len__()):
