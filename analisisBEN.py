@@ -43,7 +43,7 @@ mhs = {name: InstancesMhs() for name in mhsList}
 bd = BD()
 
 instancias = bd.obtenerInstancias(f'''
-                                  "F1"
+                                  "F9"
                                   ''')
 
 for instancia in instancias:
